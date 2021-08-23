@@ -1,5 +1,4 @@
 export class Dipendente{
-
 	
 	
 	codiceFiscale : string;
@@ -19,9 +18,6 @@ export class Dipendente{
 	nome: string;
 
 	residenza: string;
-
-	//TODO: change type to Contratto
-	contratti: Array<any>;
 
 	//TODO: change type to Azienda
 	azienda : any;
