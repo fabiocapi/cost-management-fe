@@ -1,0 +1,49 @@
+
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Item List</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Codice Fiscale</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let dipendente of dipendenti | async">
+                    <td>{{dipendente.codiceFiscale}}</td>
+                    <td>{{dipendente.nome}}</td>
+                    <td>{{dipendente.cognome}}</td>
+                  <td><!--<button (click)="onDelete(item.id)" class="btn btn-danger">Delete</button>
+                   <button (click)="onUpdate(item.id)" class="btn btn-info">Update</button> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<!--
+<div>
+<table>
+
+    <tbody>
+        <tr *ngFor="let dipendente of dipendenti | async">
+            <td>{{dipendente.nome}}</td>
+            <td>{{dipendente.cognome}}</td>
+            <td>{{dipendente.codiceFiscale}}</td>
+            
+        </tr>
+    </tbody>
+</table>
+
+</div>
+-->

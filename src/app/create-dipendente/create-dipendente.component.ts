@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Dipendente } from '../dipendente';
+import { DipendenteService } from '../dipendente.service';
 
 @Component({
   selector: 'app-create-dipendente',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateDipendenteComponent implements OnInit {
 
-  constructor() { }
+  dipendente :Dipendente = new Dipendente();
+
+  constructor(private dipendentiService: DipendenteService, route: Router) { }
 
   ngOnInit(): void {
   }
-
+  
 }
