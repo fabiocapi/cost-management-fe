@@ -12,9 +12,22 @@ export class CreateDipendenteComponent implements OnInit {
 
   dipendente :Dipendente = new Dipendente();
 
-  constructor(private dipendentiService: DipendenteService, route: Router) { }
+  constructor(private dipendentiService: DipendenteService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+    this.dipendentiService.
+    addDipendente(this.dipendente).
+    subscribe(data => console.log(data))
+    console.log(this.dipendente.codiceFiscale + "#################")
+    console.log(this.dipendente.nome + "#################")
+    this.goToList();
+    
+  }
+  goToList(){
+    this.router.navigate(['listaDipendenti']);
   }
   
 }

@@ -9,7 +9,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Azienda</th>
+                    <!--<th>Azienda</th>-->
                     <th>Nominativo</th>
                     <th>Eta'</th>
                     <th>Residenza</th>
@@ -21,9 +21,9 @@
 
             <tbody>
                 <tr *ngFor="let dipendente of dipendenti | async">
-                    <td>{{dipendente.azienda.nome}}</td>
+                    <!--<td>{{dipendente.azienda.nome}}</td>-->
                     <td>{{dipendente.nome}} {{dipendente.cognome}} </td>
-                    <td>{{dipendente.dataNascita | date:"dd/MM/yyyy" }}</td>
+                    <td>{{dipendente.dataNascita}}</td>
                     <td>{{dipendente.residenza}}</td>
                     <td>{{dipendente.cellulare}}</td>
                     <td>{{dipendente.email}}</td>

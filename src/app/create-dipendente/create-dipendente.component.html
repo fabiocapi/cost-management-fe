@@ -1,1 +1,65 @@
-<p>create-dipendente works!</p>
+<h2>Aggiungi Dipendente</h2>
+<br>
+
+<div style="width: 400px;">
+
+    <form (ngSubmit)="onSubmit()">
+
+        <label for="name">Azienda</label>
+        <div class="form-group">
+            <input type="text" class="form-control" id="azienda" required [(ngModel)]="dipendente.azienda"
+                name="azienda">
+        </div>
+
+
+        <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" class="form-control" id="nome" required [(ngModel)]="dipendente.nome" name="nome">
+        </div>
+        <div class="form-group">
+            <label for="name">Cognome</label>
+            <input type="text" class="form-control" id="cognome" required [(ngModel)]="dipendente.cognome"
+                name="cognome">
+        </div>
+        <div class="form-group">
+            <label for="name">Codice Fiscale</label>
+            <input type="text" class="form-control" id="codiceFiscale" required [(ngModel)]="dipendente.codiceFiscale"
+                name="codiceFiscale">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Luogo di nascita</label>
+            <input type="text" class="form-control" id="luogoNascita" required [(ngModel)]="dipendente.luogoNascita"
+                name="luogoNascita">
+        </div>
+        <div class="form-group">
+            <label for="name">Data di nascita</label>
+         <input type="text" class="form-control" id="dataNascita" required [(ngModel)]="dipendente.dataNascita"
+                name="dataNascita" required [(ngModel)]="dipendente.dataNascita"
+            name="dataNascita"> 
+                
+        </div>
+        <div class="form-group">
+            <label for="name">Residenza</label>
+            <input type="text" class="form-control" id="residenza" required [(ngModel)]="dipendente.residenza"
+                name="residenza">
+        </div>
+        <div class="form-group">
+            <label for="name">Domicilio (se diverso da residenza)</label>
+            <input type="text" class="form-control" id="domicilio" required [(ngModel)]="dipendente.domicilio"
+                name="domicilio">
+        </div>
+        <div class="form-group">
+            <label for="name">Cellulare</label>
+            <input type="number" class="form-control" id="residenza" required [(ngModel)]="dipendente.cellulare"
+                name="residenza">
+        </div>
+        <div class="form-group">
+            <label for="name">Email personale</label>
+            <input type="text" class="form-control" id="email" required [(ngModel)]="dipendente.email" name="email">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+</div>

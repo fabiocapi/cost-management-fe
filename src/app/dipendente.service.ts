@@ -16,14 +16,14 @@ export class DipendenteService {
 
   //async call to service in backend with Observable Object
   addDipendente(dipendente:Dipendente) : Observable<Object> {
-
     return this.http.post(`${this.dipendentiUrl}`,dipendente);
   }
 
   
   findAllDipendenti(): Observable<any>{
-
     return this.http.get(`${this.dipendentiUrl}`);
   }
+
+
  
 }
