@@ -6,7 +6,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { TipologiacontrattoComponent } from './tipologiacontratto/tipologiacontratto.component';
 
 const routes: Routes = [
-  { path: "" , component: LoginComponent},
+  { path: "login" , component: LoginComponent},
   { path: "loginsuccess" , component: LoginsuccessComponent},
   { path: "registration" , component: RegistrationComponent},
   { path: "tipologia_contratto" , component: TipologiacontrattoComponent}

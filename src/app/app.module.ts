@@ -9,6 +9,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { LoginsuccessComponent } from './loginsuccess/loginsuccess.component';
 import { TipologiacontrattoComponent } from './tipologiacontratto/tipologiacontratto.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TipologiacontrattoComponent } from './tipologiacontratto/tipologiacontr
     LoginComponent,
     RegistrationComponent,
     LoginsuccessComponent,
-    TipologiacontrattoComponent
+    TipologiacontrattoComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -26,7 +26,7 @@ export class RegistrationComponent implements OnInit {
         console.log(response);
         if(response!=null)
         {
-          this.router.navigate(['/loginsuccess']);
+          this.router.navigate(['/login']);
         }
       },
       error => {
