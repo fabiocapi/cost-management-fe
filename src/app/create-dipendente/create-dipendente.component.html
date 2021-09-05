@@ -3,14 +3,19 @@
 
 <div style="width: 400px;">
 
-    <form (ngSubmit)="onSubmit()">
 
-        <label for="name">Azienda</label>
-        <div class="form-group">
-            <input type="text" class="form-control" id="azienda" required [(ngModel)]="dipendente.azienda"
-                name="azienda">
+    <form  (ngSubmit)="onSubmit()">  
+<!--| async-->
+      <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Azienda</mat-label>
+            <mat-select [(ngModel)]="defaultAziendaId" name="defaultAziendaId" (selectionChange)="changeClient($event.value)" placeholder="Azienda">
+              <mat-option *ngFor="let azienda of aziende | async  " [value]="azienda.id">
+                {{azienda.nome}}
+            </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
-
 
         <div class="form-group">
             <label for="name">Nome</label>
@@ -34,10 +39,9 @@
         </div>
         <div class="form-group">
             <label for="name">Data di nascita</label>
-         <input type="text" class="form-control" id="dataNascita" required [(ngModel)]="dipendente.dataNascita"
-                name="dataNascita" required [(ngModel)]="dipendente.dataNascita"
-            name="dataNascita"> 
-                
+            <input type="text" class="form-control" id="dataNascita" required [(ngModel)]="dipendente.dataNascita"
+                name="dataNascita" placeholder="gg/mm/aaaa">
+
         </div>
         <div class="form-group">
             <label for="name">Residenza</label>
@@ -51,8 +55,8 @@
         </div>
         <div class="form-group">
             <label for="name">Cellulare</label>
-            <input type="number" class="form-control" id="residenza" required [(ngModel)]="dipendente.cellulare"
-                name="residenza">
+            <input type="number" class="form-control" id="cellulare" required [(ngModel)]="dipendente.cellulare"
+                name="cellulare">
         </div>
         <div class="form-group">
             <label for="name">Email personale</label>

@@ -1,3 +1,5 @@
+import { Azienda } from "./azienda";
+
 export class Dipendente{
 	
 	
@@ -9,6 +11,8 @@ export class Dipendente{
 
 	dataNascita: string;
 
+	age: number;
+
 	domicilio : string;
 
 	email: string;
@@ -19,6 +23,5 @@ export class Dipendente{
 
 	residenza: string;
 
-	//TODO: change type to Azienda
-	azienda : any;
+	azienda : Azienda;
 }
