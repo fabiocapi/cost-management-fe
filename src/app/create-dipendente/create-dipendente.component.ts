@@ -7,6 +7,7 @@ import { Azienda } from '../azienda';
 import { AziendaService } from '../azienda.service';
 import { Dipendente } from '../dipendente';
 import { DipendenteService } from '../dipendente.service';
+import { map, filter, switchMap, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create-dipendente',
@@ -17,20 +18,24 @@ import { DipendenteService } from '../dipendente.service';
 export class CreateDipendenteComponent implements OnInit {
 
   dipendente : Dipendente = new Dipendente();
-  selectedeAziendaId: number =11;;
-  defaultAziendaId :number =11;
+  selectedeAziendaId: number =1;;
+  defaultAziendaId :number =1;
   aziende: Observable<Azienda[]>;
-  
+  //aziendaId: number;
+  azienda: Azienda;
 
   constructor(private dipendentiService: DipendenteService,private aziendaService: AziendaService, private router: Router) { 
     this.loadAziende();
    
   }
 
-  async loadAziende() {
+   async loadAziende() {
     await new Promise(f => setTimeout(f, 50));
-    this.aziende = this.aziendaService.findAllAziende();
-  
+    this.aziende= this.aziendaService.findAllAziende();
+   
+    
+    console.log("AZIENDE ARRAY OBSERVABLE : " +this.aziende);
+    
   }
   
   ngOnInit(): void {
