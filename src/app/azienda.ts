@@ -4,5 +4,10 @@ export class Azienda{
 
     nome: string;
 
+    constructor(serverObject: any) {
+        Object.assign(this, serverObject)
+      }
+    
+
 
 }

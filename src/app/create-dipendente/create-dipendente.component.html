@@ -6,13 +6,16 @@
 
     <form (ngSubmit)="onSubmit()">
         <!--| async-->
+        
+
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Azienda</mat-label>
-                <mat-select [(ngModel)]="defaultAziendaId" name="defaultAziendaId"
+                <mat-select  
+                [(ngModel)]="defaultAziendaId" name="defaultAziendaId"
                     (selectionChange)="changeClient($event.value)" placeholder="Azienda">
                     <mat-option *ngFor="let azienda of aziende | async  " [value]="azienda.id">
-                        {{azienda.nome}}
+                        {{azienda.nome}} 
                     </mat-option>
                 </mat-select>
             </mat-form-field>
@@ -68,6 +71,8 @@
                 <small class="text-danger" *ngIf="dataNascita.errors.required">Campo Obbligatorio</small>
                 <small class="text-danger" *ngIf="dataNascita.errors.pattern">il formato data deve essere gg/mm/aaaa
                  </small>
+                 <small class="text-danger" *ngIf="dataNascita.errors.futureDate">La data di nascita non puo' essere nel futuro
+                </small>
             </div>
         </div>
         <div class="form-group">
@@ -90,10 +95,10 @@
             <label for="name">Cellulare</label>
             <input type="text" class="form-control" id="cellulare" required [(ngModel)]="dipendente.cellulare"
                 name="cellulare" pattern="^((00|\+)39[\. ]??)??3\d{2}[\. ]??\d{6,7}$" #cellulare="ngModel"
-                [class.is-invalid]="cellulare.invalid && cellulare.touched" placeholder="+39 e numero di cellulare" >
+                [class.is-invalid]="cellulare.invalid && cellulare.touched" placeholder="+39 e/o numero di cellulare" >
                 <div *ngIf="cellulare.errors && (cellulare.invalid && cellulare.touched)" style='float:right;'>
                     <small class="text-danger" *ngIf="cellulare.errors.required">Campo Obbligatorio</small>
-                    <small class="text-danger" *ngIf="cellulare.errors.pattern"> il telefono puo' includere +39 seguito dal numero cellulare
+                    <small class="text-danger" *ngIf="cellulare.errors.pattern"> il telefono puo' includere +39 prima dal numero cellulare
                      </small>
                 </div>
         </div>

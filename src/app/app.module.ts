@@ -18,6 +18,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BasicComponent } from './basic/basic.component';
 import { UpdateDipendenteComponent } from './update-dipendente/update-dipendente.component';
+import { DettaglioDipendentiComponent } from './dettaglio-dipendenti/dettaglio-dipendenti.component';
 
 @NgModule({
 
@@ -29,6 +30,7 @@ import { UpdateDipendenteComponent } from './update-dipendente/update-dipendente
     PageNotFoundComponent,
     BasicComponent,
     UpdateDipendenteComponent,
+    DettaglioDipendentiComponent,
   ],
   imports: [
     BrowserModule,

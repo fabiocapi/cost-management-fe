@@ -14,6 +14,7 @@ export class DipendenteService {
 
   //baseURL
   private dipendentiUrl = 'http://localhost:8080/api/dipendenti';
+  private aziendeUrl = 'http://localhost:8080/api/dipendenti';
 
   //async call to service in backend with Observable Object
   addDipendente(dipendente:Dipendente, id: number) : Observable<Object> {
@@ -45,6 +46,9 @@ export class DipendenteService {
   }
 
 
+  findAziendaById (id : string): Observable<any> {
+    return this.http.get(`${this.aziendeUrl}/${id}`);
+  }
 
   
 

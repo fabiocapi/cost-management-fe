@@ -1,4 +1,3 @@
-import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -7,11 +6,11 @@ import { Dipendente } from '../dipendente';
 import { DipendenteService } from '../dipendente.service';
 
 @Component({
-  selector: 'app-dipendente-list',
-  templateUrl: './dipendente-list.component.html',
-  styleUrls: ['./dipendente-list.component.css']
+  selector: 'app-dettaglio-dipendenti',
+  templateUrl: './dettaglio-dipendenti.component.html',
+  styleUrls: ['./dettaglio-dipendenti.component.css']
 })
-export class DipendenteListComponent implements OnInit {
+export class DettaglioDipendentiComponent implements OnInit {
 
   dipendenti: Observable<Dipendente[]>;
   dipendente: Dipendente;
@@ -32,7 +31,6 @@ export class DipendenteListComponent implements OnInit {
   }
 
   onUpdate(codiceFiscale: string, aziendaId: number,azienda: Azienda) {
-  
     this.router.navigate(['updateDipendente', codiceFiscale, aziendaId]);
   }
 
@@ -45,6 +43,4 @@ export class DipendenteListComponent implements OnInit {
       },
       error => console.log(error));
   }
-
-
 }
