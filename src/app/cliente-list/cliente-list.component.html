@@ -3,16 +3,24 @@
   .filter {
      margin-bottom: 0.5cm;
   }
+
+  .nav-clienteAdd {
+     margin-right: 0px;
+  }
 </style>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h2>Elenco Clienti</h2>
     </div>
+
     <form (ngSubmit)="onSubmit()">
         <div class="filter">
             <input type="text" class="form-control" id="filter" name="filter" [(ngModel)]="filter" placeholder="Filtra clienti">
         </div>
         <button type="submit" class="btn btn-success">Filtra</button>
+        <button class="btn btn-success"  style="float:right;">
+          <a routerLink="clienteAdd" class="nav-link" routerLinkActive="active" style="color:white">Aggiungi Nuovo Cliente</a>
+        </button>
     </form>
 
     &nbsp;
@@ -49,6 +57,7 @@
                     <td>{{cliente.codiceInterscambio}}</td>
                     <td>{{cliente.pec}}</td>
                     <td><button (click)="onDelete(cliente.partitaIva)" class="btn btn-danger">Delete</button>
+                      &nbsp;&nbsp;
                         <button (click)="onUpdate(cliente.partitaIva)" class="btn btn-info">Update</button>
                     </td>
                 </tr>

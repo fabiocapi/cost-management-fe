@@ -25,7 +25,7 @@ export class ClienteUpdateComponent implements OnInit {
         }, error => console.log(error));
     }
     onSubmit() {
-      this.clienteService.updateCliente(this.cliente, this.cliente.partitaIva).toPromise().then(x => this.goToList(), error => console.log(error));
+      this.clienteService.updateCliente(this.cliente, this.partitaIva).toPromise().then(x => this.goToList(), error => console.log(error));
 
     }
     goToList() {
