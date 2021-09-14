@@ -1,3 +1,11 @@
 .mat-form-field-infix {
     display: inherit;
   }
+
+  .parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+

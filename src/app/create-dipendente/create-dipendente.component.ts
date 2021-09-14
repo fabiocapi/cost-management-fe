@@ -36,8 +36,7 @@ export class CreateDipendenteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /* questo metodo non serve e' solo una prova per trovare una azienda dall id
-    l azienda by id verra impelmentato nel back end nell' aziendaservice invece che fare tutto il giro dal frontend
+    /* 
     this.aziendaService.findAziendaById("1")
       .subscribe(data => {
         //console.log(data)
