@@ -1,0 +1,52 @@
+
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2 class="text-center">Lista Dipendenti</h2>
+    </div>
+    <br>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr class="table-primary">
+                    <th>Azienda</th>
+                    <th>Nominativo</th>
+                    <th>Eta'</th>
+                    <th>Residenza</th>
+                    <th>Cellulare</th>
+                    <th>Email</th>
+                    <th>Modifica</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let dipendente of dipendenti | async">
+                    <td>{{dipendente.azienda.nome}}</td>
+                    <td>{{dipendente.nome}} {{dipendente.cognome}} </td>
+                    <td>{{dipendente.age}}</td>
+                    <td>{{dipendente.residenza}}</td>
+                    <td>{{dipendente.cellulare}}</td>
+                    <td>{{dipendente.email}}</td>
+                  <td><button (click)="onDelete(dipendente.codiceFiscale)" class="btn btn-danger">Delete</button> |
+                   <button  (click)="onUpdate(dipendente.codiceFiscale,dipendente.azienda.id, dipendente.azienda)" class="btn btn-info">Update</button> 
+                    </td>
+                    
+               
+                </tr>
+               
+            </tbody>
+            
+            
+           
+        </table>
+       
+    </div>
+    
+
+</div>
+<div class="float-end" style="margin-right: 65px">
+    <p><a  href="dettaglioDipendenti">Visualizza dettagli</a></p>
+</div>
+
+
