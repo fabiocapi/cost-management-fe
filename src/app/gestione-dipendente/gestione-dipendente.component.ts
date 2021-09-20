@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestioneDipendenteComponent implements OnInit {
 
-  title: string = "gestione dipendente";
+  //title: string = "gestione dipendente";
   constructor() { }
 
   ngOnInit(): void {
