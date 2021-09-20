@@ -1,2 +1,27 @@
-<p>gestione-dipendente works!</p>
-<h2>{{title}}</h2>
+
+<div class="center">
+<h1>Gestione Dipendente</h1>
+</div>
+<br>
+<div class="center">
+  
+<nav>
+  <a class="button" routerLink="inserisciDipendente" routerLinkActive="activebutton">Inserisci Dipendente</a> |
+  <a class="button" routerLink="listaDipendenti" routerLinkActive="activebutton">Visualizza Dipendenti</a> |   
+  <a class="button" routerLink="listaContratti" routerLinkActive="activebutton">Dati Contrattuali</a> |
+  <a class="button" routerLink="dettaglioDipendenti" routerLinkActive="activebutton">Dettaglio Dipendenti</a> |
+</nav>
+
+</div>
+<br>
+
+<div class="container-fluid">
+ 
+
+    <div class="card-body">
+     
+        <router-outlet></router-outlet>
+        
+</div>
+
+</div>
