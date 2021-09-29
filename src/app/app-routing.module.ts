@@ -1,26 +1,45 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BasicComponent } from './basic/basic.component';
-import { CreateDipendenteComponent } from './create-dipendente/create-dipendente.component';
-import { DettaglioDipendentiComponent } from './dettaglio-dipendenti/dettaglio-dipendenti.component';
+import { LoginComponent } from './login/login.component';
+import { LoginsuccessComponent } from './loginsuccess/loginsuccess.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { TipologiacontrattoComponent } from './tipologiacontratto/tipologiacontratto.component';
+import { ClienteListComponent } from './cliente-list/cliente-list.component';
+import { ClienteAddComponent } from './cliente-add/cliente-add.component';
+import { ClienteUpdateComponent } from './cliente-update/cliente-update.component';
 import { DipendenteListComponent } from './dipendente-list/dipendente-list.component';
-import { GestioneDipendenteComponent } from './gestione-dipendente/gestione-dipendente.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CreateDipendenteComponent } from './create-dipendente/create-dipendente.component';
 import { UpdateDipendenteComponent } from './update-dipendente/update-dipendente.component';
+import { GestioneDipendenteComponent } from './gestione-dipendente/gestione-dipendente.component';
+import { DettaglioDipendentiComponent } from './dettaglio-dipendenti/dettaglio-dipendenti.component';
+import { GestioneCommessaComponent } from './gestione-commessa/gestione-commessa.component';
+import { CommessaAddComponent } from './commessa-add/commessa-add.component';
+
+
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dipendente', pathMatch: 'full' },
- // {path:'gestioneDipendente', component: GestioneDipendenteComponent},
-  { path: 'listaDipendenti', component: DipendenteListComponent },
-  { path: 'inserisciDipendente', component: CreateDipendenteComponent },
-  { path: 'basic',component: BasicComponent, data: { title: 'Basic Select Example' }},
-  { path: 'updateDipendente/:codiceFiscale/:aziendaId',component: UpdateDipendenteComponent},
-  { path: 'dettaglioDipendenti', component: DettaglioDipendentiComponent},
-  //{path: '**', component: PageNotFoundComponent},
+  { path: "login" , component: LoginComponent},
+  { path: "loginsuccess" , component: LoginsuccessComponent},
+  { path: "registration" , component: RegistrationComponent},
+  { path: "tipologia_contratto" , component: TipologiacontrattoComponent},
+  { path: "clienti", component: ClienteListComponent},
+  { path: "clienti/add", component: ClienteAddComponent},
+  { path: "clienti/update", component: ClienteUpdateComponent},
+  { path: "registration" , component: RegistrationComponent},
+  { path: "gestioneDipendenti/listaDipendenti" , component: DipendenteListComponent},
+  { path: "updateDipendente/:codiceFiscale/:aziendaId" , component: UpdateDipendenteComponent},
+  { path: "gestioneDipendenti/inserisciDipendente" , component: CreateDipendenteComponent},
+  { path: "gestioneDipendenti" , component: GestioneDipendenteComponent},
+  { path: "dettaglioDipendenti" , component: DettaglioDipendentiComponent},
+  { path: "gestioneDipendenti/dettaglioDipendenti" , component: DettaglioDipendentiComponent},
+  { path: "gestioneCommessa" , component: GestioneCommessaComponent},
+  { path: "gestioneCommessa/commessaAdd" , component: CommessaAddComponent},
+
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],                              
+  exports: [RouterModule ]
 })
 export class AppRoutingModule { }
