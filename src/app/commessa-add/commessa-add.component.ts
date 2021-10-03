@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Cliente } from '../cliente';
+import { ClienteService } from '../cliente.service';
 import { Commessa } from '../commessa';
 import { CommessaService } from '../commessa.service';
 
@@ -11,19 +14,49 @@ import { CommessaService } from '../commessa.service';
 export class CommessaAddComponent implements OnInit {
 
   commessa : Commessa = new Commessa();
+  cliente : Cliente = new Cliente();
+  defaultClienteId: string;
+  selectedClienteId: string;
+  clienti: Observable<Cliente[]>;
+  clienteSelectedPartitaIva : string;
 
-  tipologia_commessa: Array<string> = ["Time Material", "Produzione"];
+  selectedCommessa = 'Time Material';
+  //tipologia_commessa: Array<string> = ["Time Material", "Produzione"];
 
-  selected = 'Time Material';
-  constructor(private commessaService: CommessaService,private router: Router) { }
+  
+  constructor(private commessaService: CommessaService,private clienteService: ClienteService,
+     private router: Router) {
+      
+      }
 
   ngOnInit(): void {
+    this.loadClienti();
+    /*
+    this.clienteService.findClienteByPartitaIva()
+      .subscribe(data => {
+        //console.log(data)
+        this.clienteByPartitaIva = data;
+        this.defaultClienteId = data.id;
+        this.selectedClienteId = data.id;
+      }, error => console.log(error));
+      */
   }
 
+  async loadClienti() {
+    await new Promise(f => setTimeout(f, 50));
+    this.clienti = this.clienteService.findAllClienti();
+  }
+
+  changeClient(value: any) {
+    this.clienteSelectedPartitaIva = value;
+  }
+
+
   onSubmit() {
-    this.commessa.tipologiaCommessa = this.selected;
+    this.commessa.tipologiaCommessa = this.selectedCommessa;
+    
     this.commessaService.
-      addCommessa(this.commessa).toPromise()
+      addCommessa(this.commessa, this.clienteSelectedPartitaIva).toPromise()
       .then(x => this.goToList(), error => console.log(error));
   }
 

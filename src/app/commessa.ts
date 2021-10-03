@@ -13,6 +13,10 @@ export class Commessa {
     dataFineCommessa:String;
 
     cliente: Cliente;
+
+    importo: number;
+
+    
     
     constructor(){}
 

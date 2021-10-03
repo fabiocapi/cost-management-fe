@@ -24,7 +24,7 @@ export class CreateDipendenteComponent implements OnInit {
   aziendaFromProperties: Observable<Azienda>;
   aziendaById: Azienda;
   aziendaByNome: Azienda;
-
+  
 
   constructor(private aziendaService: AziendaService, private dipendentiService: DipendenteService, private router: Router) {
     this.loadAziende();
@@ -58,12 +58,14 @@ export class CreateDipendenteComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log("%%%$$ DIPENDENT OBJ :"+ this.dipendente.cellulare);
+    
     this.dipendentiService.
       addDipendente(this.dipendente, this.selectedeAziendaId).toPromise()
       .then(x => this.goToList(), error => console.log(error));
   }
   goToList() {
-    this.router.navigate(['listaDipendenti']);
+    this.router.navigate(['gestioneDipendenti/listaDipendenti']);
   }
 }
 

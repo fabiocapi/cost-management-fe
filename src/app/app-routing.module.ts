@@ -14,6 +14,7 @@ import { GestioneDipendenteComponent } from './gestione-dipendente/gestione-dipe
 import { DettaglioDipendentiComponent } from './dettaglio-dipendenti/dettaglio-dipendenti.component';
 import { GestioneCommessaComponent } from './gestione-commessa/gestione-commessa.component';
 import { CommessaAddComponent } from './commessa-add/commessa-add.component';
+import { DipendenteCommessaComponent } from './dipendente-commessa/dipendente-commessa.component';
 
 
 
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: "gestioneDipendenti/dettaglioDipendenti" , component: DettaglioDipendentiComponent},
   { path: "gestioneCommessa" , component: GestioneCommessaComponent},
   { path: "gestioneCommessa/commessaAdd" , component: CommessaAddComponent},
+  { path: "gestioneCommessa/dipendente_commessa" , component: DipendenteCommessaComponent},
 
 
 ];
