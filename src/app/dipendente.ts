@@ -26,4 +26,8 @@ export class Dipendente{
 	residenza: string;
 
 	azienda : Azienda;
+
+	constructor(){
+		
+	}
 }

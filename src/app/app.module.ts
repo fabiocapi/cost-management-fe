@@ -24,6 +24,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DettaglioDipendentiComponent } from './dettaglio-dipendenti/dettaglio-dipendenti.component';
 import { GestioneCommessaComponent } from './gestione-commessa/gestione-commessa.component';
 import { CommessaAddComponent } from './commessa-add/commessa-add.component';
+import { DipendenteCommessaComponent } from './dipendente-commessa/dipendente-commessa.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { CommessaAddComponent } from './commessa-add/commessa-add.component';
     TipologiacontrattoComponent,
     NavbarComponent,
     GestioneCommessaComponent,
-    CommessaAddComponent
+    CommessaAddComponent,
+    DipendenteCommessaComponent
        
   ],
   imports: [

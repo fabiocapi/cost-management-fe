@@ -23,6 +23,7 @@ export class DipendenteService {
 
   
   findAllDipendenti(): Observable<any>{
+    console.log("%%%%%% SERVICE FIND ALL DIPENDENTI CALLED");
     return this.http.get(`${this.dipendentiUrl}`);
   }
 
