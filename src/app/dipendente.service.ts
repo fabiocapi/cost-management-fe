@@ -17,7 +17,7 @@ export class DipendenteService {
   private aziendeUrl = 'http://localhost:8080/api/dipendenti';
 
   //async call to service in backend with Observable Object
-  addDipendente(dipendente:Dipendente, id: number) : Observable<Object> {
+  addDipendente(dipendente:Dipendente, id: number) : Observable<any> {
     return this.http.post(`${this.dipendentiUrl}/${id}`,dipendente);
   }
 

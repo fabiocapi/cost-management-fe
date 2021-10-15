@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Commessa } from './commessa';
@@ -20,13 +20,30 @@ export class DipendenteCommessaService {
   //   return this.http.post(`${this.dipendipendenteCommessaUrl}/${codiceFiscaleDipendente}/${commessaCodice}`,commessa);
   // }
 
-  addDipendenteCommessa(  dipendenteCommessa:DipendenteCommessa, importo:number) : Observable<any> {
-    console.log("####### DIPENDENTECOMMESSA :"+ dipendenteCommessa);
-    console.log("####### DIPENDENTECOMMESSA importo parameter :"+ importo);
+  addDipendenteCommessa(  dipendenteCommessa:DipendenteCommessa, commessaCodice: string) : Observable<any> {
+    //console.log("####### DIPENDENTECOMMESSA importo parameter :"+ importo);
+    //console.log(dipendenteCommessa);
+    //console.log(dipendenteCommessa.id.dipendenteCodiceFiscale);
+    
+    // let httpHeaders = new HttpHeaders({
+    //   'Content-Type' : 'application/json',
+    //   'Cache-Control': 'no-cache'
+    //      });    
 
-
-    //console.log("^^^^^ DIPENDENTECOMEMMSSA CF :"+ commessa.codice);
-    //console.log("@@@@@ DIPENDENTE CF "+ dipendenteCf);
-    return this.http.post(`${this.dipendipendenteCommessaUrl}/${importo}`, dipendenteCommessa);
+    console.log("^^^^^ DIPENDENTECOMEMMSSA CCODICE :"+ dipendenteCommessa.id.codiceCommessa);
+    //console.log("@@@@@ DIPENDENTE CF "+ dipendenteCommessa.id.dipendenteCodiceFiscale);
+    console.log(dipendenteCommessa.tariffaGg);
+    console.log(dipendenteCommessa);
+    return this.http.post(`${this.dipendipendenteCommessaUrl}/${commessaCodice}`,
+//     {"id":{
+//       "dipendenteCodiceFiscale":"VNDGDU74B21L4856",
+//       "commessaCodice":"romaF"
+//       },
+//   "tariffaGg": null,
+//   "dataInizioAttivita": "2003-03-03",
+//   "dataFineAttivita": "2019-02-02"
+//  }
+ 
+ dipendenteCommessa);
   }
 }

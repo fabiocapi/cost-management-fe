@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Commessa } from '../commessa';
@@ -6,7 +6,7 @@ import { CommessaService } from '../commessa.service';
 import { Dipendente } from '../dipendente';
 import { DipendenteCommessaService } from '../dipendente-commessa.service';
 import { DipendenteService } from '../dipendente.service';
-import { DipendenteCommessa} from '../dipendenteCommessa';
+import { DipendenteCommessa } from '../dipendenteCommessa';
 import { DipendenteCommessaPK } from '../dipendenteCommessaPK';
 
 
@@ -16,98 +16,95 @@ import { DipendenteCommessaPK } from '../dipendenteCommessaPK';
   styleUrls: ['./dipendente-commessa.component.css']
 })
 export class DipendenteCommessaComponent implements OnInit {
+  dipendente = new Dipendente();
+  dipendenteCommessa = new DipendenteCommessa();
+  dipendenteCommessaCodice: string = "";
+  dipendenteCommessaDipendente: string = "";
+  commessaCodice: string;
+  commessa = new Commessa();
 
-   commessa:Commessa= new Commessa();
-   dipendente:Dipendente  = new Dipendente();
-   dipendenteCommessa: DipendenteCommessa;
-
-   
+  commesse = new Observable<Commessa[]>();
+  dipendenti = new Observable<Dipendente[]>();
+  dipdendenteCommmessaPK = new DipendenteCommessaPK(this.dipendenteCommessaCodice, this.dipendenteCommessaDipendente);
+  tipologiaCommessa: string;
+  
  
-   
-   modelDipendente: Dipendente;
-   modelCommessa: Commessa;
-   commesse = new Observable<Commessa[]>();
-   dipendenti = new Observable<Dipendente[]>();
-   dipdendenteCommmessaId : DipendenteCommessaPK = new DipendenteCommessaPK();
-
-   tipologiaCommessa : string;
-   importo: number;
-   tariffaGg: string;
+  //associa riosrsa tariffa
+  risorsaAssociata :boolean = false;
+  nome:string;
+  cognome:string;
+  aggiungiTriffaComboBox:boolean = false;
 
   constructor(private commessaService: CommessaService,
-            private dipendenteCommessaService: DipendenteCommessaService,
-             private dipendenteService: DipendenteService, private router: Router) { }
+    private dipendenteCommessaService: DipendenteCommessaService,
+    private dipendenteService: DipendenteService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadCommesse();
     this.loadDipendenti();
   }
 
-  async loadCommesse(){
+  async loadCommesse() {
     await new Promise(f => setTimeout(f, 50));
     this.commesse = this.commessaService.findAllCommesse();
   }
 
-  async loadDipendenti(){
+  async loadDipendenti() {
     await new Promise(f => setTimeout(f, 50));
     this.dipendenti = this.dipendenteService.findAllDipendenti();
-    //console.log("%%%%%% DIPENDENTI :" + this.dipendenti);
-  }
+    
+    }
 
 
 
   changeDescrCommessa(value: any) {
+    console.log(this.dipendente);
+     if (!(Object.keys(this.dipendente).length === 0)) {
+    this.loadDipendenti();
+    this.aggiungiTriffaComboBox = false;
+    this.risorsaAssociata = false;
+     }
     this.commessa = value;
-    console.log(this.commessa);
+    this.dipendenteCommessaCodice = this.commessa.codice;
+    //console.log("IMPORTO: ");
+    //console.log(this.commessa.importo);
     this.tipologiaCommessa = this.commessa.tipologiaCommessa;
   }
 
-  changeDipendente(value:any){
+  changeDipendente(value: any) {
+    if (!(Object.keys(this.dipendente).length === 0)) {
+      this.dipendenteCommessa.tariffaGg = "0";
+      this.dipendenteCommessa.dataFineAttivita = new Date();
+      this.dipendenteCommessa.dataInizioAttivita = new Date();
+
+    }
     this.dipendente = value;
-    //console.log(this.dipendente);
-  
+    this.dipendenteCommessaDipendente = this.dipendente.codiceFiscale;
+    this.risorsaAssociata = true;
+    this.nome = this.dipendente.nome;
+    this.cognome= this.dipendente.cognome;
+
   }
+
+  aggiungiTariffa(){
+    this.aggiungiTriffaComboBox = true;
+  }
+  
 
   onSubmit() {
-    this.dipdendenteCommmessaId.codiceCommessa = this.commessa.codice;
-    this.dipdendenteCommmessaId.dipendenteCodiceFiscale = this.dipendente.codiceFiscale;
-    this.dipendenteCommessa.id = this.dipdendenteCommmessaId;
-
-    //console.log(this.dipendenteCommessa.commessa.codice);
-    //console.log(this.dipendenteCommessa.id);
-    //this.dipendenteCommessa.id.codiceCommessa = this.dipendenteCommessa.commessa.codice;
-    //this.dipendenteCommessa.id.dipendenteCodiceFiscale = this.dipendenteCommessa.dipendente.codiceFiscale;
-    
-    //this.dipendenteCommessaPKJ = dipendenteCommessaPK;
-    //console.log(this.commessa.importo);
-    //console.log(this.tariffaGg);
-    //this.dipdendenteCommmessaId.codiceCommessa = this.modelCommessa.codice;
-    //this.dipdendenteCommmessaId.dipendenteCodiceFiscale =this.modelDipendente.codiceFiscale;
-    //console.log("DIPCOMPK CF :"+this.dipendenteCommessaPK.dipendenteCodiceFiscale);
-    //console.log(this.dipendenteCommessa.dataInizioAttivita);
-    console.log(this.dipendenteCommessa.id.dipendenteCodiceFiscale);
-    console.log(this.dipendenteCommessa.id.codiceCommessa);
+    this.dipdendenteCommmessaPK.codiceCommessa = this.dipendenteCommessaCodice;
+    this.dipdendenteCommmessaPK.dipendenteCodiceFiscale = this.dipendenteCommessaDipendente;
+    this.dipendenteCommessa.id = this.dipdendenteCommmessaPK;
+    //console.log(this.dipendenteCommessa.importo);
     
 
-    this.dipendenteCommessa.dataInizioAttivita= new Date ("2001-02-02");
-    this.dipendenteCommessa.dataFineAttivita= new Date("2004-03-03");
-    this.dipendenteCommessa.id.dipendenteCodiceFiscale = "VNDGDU74B21L4856";
-    this.dipendenteCommessa.id.codiceCommessa="romaF";
-    console.log(this.dipendenteCommessa);
-    //console.log(this.dipendenteCommessa);
-    // this.commessa.tipologiaCommessa = this.selectedCommessa;
-    //console.log("%%%%% COMMESSA FE :"+this.dipendenteCommessa.dataFineAttivita);
     this.dipendenteCommessaService.
-    addDipendenteCommessa(this.dipendenteCommessa, this.commessa.importo).toPromise()
-     .then(x => this.goToList(), error => console.log(error));
-
-      // this.commessaService.
-      // addCommessa(this.commessa, this.clienteSelectedPartitaIva).toPromise()
-      // .then(x => this.goToList(), error => console.log(error));
+      addDipendenteCommessa(this.dipendenteCommessa, this.dipendenteCommessaCodice).toPromise()
+      .then(x => this.goToList(), error => console.log(error));
   }
 
-  goToList(){
-
+  goToList() {
+    this.router.navigate(['/dipendente_commessa']);
   }
 
 }

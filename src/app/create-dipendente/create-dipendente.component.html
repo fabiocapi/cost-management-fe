@@ -110,7 +110,7 @@
         <div class="form-group">
             <label for="name">Email personale</label>
             <input type="text" class="form-control" id="email" required [(ngModel)]="dipendente.email" name="email"
-            pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" #email="ngModel"
+            pattern="^([a-zA-Z0-9_\.\-])+@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" #email="ngModel"
                 [class.is-invalid]="email.invalid && email.touched">
             <div *ngIf="email.errors && (email.invalid && email.touched)" style='float:right;'>
                 <small class="text-danger" *ngIf="email.errors.required">Campo Obbligatorio</small>

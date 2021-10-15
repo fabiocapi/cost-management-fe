@@ -3,13 +3,10 @@ import { Dipendente } from "./dipendente";
 
 export class DipendenteCommessaPK{
 
-   
-    dipendenteCodiceFiscale: string;
+    
 
-    codiceCommessa : string;
-
-    constructor(){
-        
+    constructor(public codiceCommessa : string,public   dipendenteCodiceFiscale: string ){
+       
     }
     
     

@@ -12,11 +12,11 @@ export class DipendenteCommessa {
 
   tariffaGg: string;
 
- 
+  //importo: string;
 
   constructor() {
-   // this.id = new DipendenteCommessaPK();
-    
+    this.id = new DipendenteCommessaPK("","");
+    //this.importo = "0";
   }
 
 }
