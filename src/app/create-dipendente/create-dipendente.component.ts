@@ -8,6 +8,7 @@ import { Azienda } from '../azienda';
 import { AziendaService } from '../azienda.service';
 import { Dipendente } from '../dipendente';
 import { DipendenteService } from '../dipendente.service';
+declare let alertify: any;
 
 @Component({
   selector: 'app-create-dipendente',
@@ -64,7 +65,7 @@ export class CreateDipendenteComponent implements OnInit {
       addDipendente(this.dipendente, this.selectedeAziendaId).toPromise()
       .then(res => {
           if (res == null) {
-            window.alert("Il dipendente e' gia' esistente nel database!" +
+            alertify.error("Il dipendente e' gia' esistente nel database!" +
               " Inserisci un codice fiscale che non e' presente.");
           } else {
             this.goToList();
