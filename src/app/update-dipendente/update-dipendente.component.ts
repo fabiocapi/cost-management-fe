@@ -57,7 +57,7 @@ export class UpdateDipendenteComponent implements OnInit {
   }
 
   goToList() {
-    this.router.navigate(['/listaDipendenti']);
+    this.router.navigate(['gestioneDipendenti/listaDipendenti']);
     //return false;
   }
 

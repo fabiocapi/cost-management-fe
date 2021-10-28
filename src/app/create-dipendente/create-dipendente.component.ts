@@ -58,12 +58,22 @@ export class CreateDipendenteComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log("%%%$$ DIPENDENT OBJ :" + this.dipendente.cellulare);
+    
     this.dipendentiService.
       addDipendente(this.dipendente, this.selectedeAziendaId).toPromise()
-      .then(x => this.goToList(), error => console.log(error));
+      .then(res => {
+          if (res == null) {
+            window.alert("Il dipendente e' gia' esistente nel database!" +
+              " Inserisci un codice fiscale che non e' presente.");
+          } else {
+            this.goToList();
+          }
+        });
   }
+  
   goToList() {
-    this.router.navigate(['listaDipendenti']);
+    this.router.navigate(['gestioneDipendenti/listaDipendenti']);
   }
 }
 

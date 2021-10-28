@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +24,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DettaglioDipendentiComponent } from './dettaglio-dipendenti/dettaglio-dipendenti.component';
 import { GestioneCommessaComponent } from './gestione-commessa/gestione-commessa.component';
 import { CommessaAddComponent } from './commessa-add/commessa-add.component';
+import { DipendenteCommessaComponent } from './dipendente-commessa/dipendente-commessa.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { CommessaAddComponent } from './commessa-add/commessa-add.component';
     TipologiacontrattoComponent,
     NavbarComponent,
     GestioneCommessaComponent,
-    CommessaAddComponent
+    CommessaAddComponent,
+    DipendenteCommessaComponent
        
   ],
   imports: [
@@ -57,6 +59,7 @@ import { CommessaAddComponent } from './commessa-add/commessa-add.component';
     MatFormFieldModule,
     RouterModule,
     NoopAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
