@@ -51,7 +51,7 @@ export class DipendenteCommessaComponent implements OnInit {
 
   async loadDipendenti() {
     await new Promise(f => setTimeout(f, 50));
-    this.dipendenti = this.dipendenteService.findAllDipendenti();
+    //this.dipendenti = this.dipendenteService.findAllDipendenti();
     
     }
 

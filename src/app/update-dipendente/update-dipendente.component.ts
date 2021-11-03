@@ -60,5 +60,9 @@ export class UpdateDipendenteComponent implements OnInit {
     this.router.navigate(['gestioneDipendenti/listaDipendenti']);
     //return false;
   }
+   //limit calendar to past dates
+   getToday(): string {
+    return new Date().toISOString().split('T')[0]
+ }
 
 }

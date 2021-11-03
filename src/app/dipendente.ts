@@ -15,9 +15,10 @@ export class Dipendente{
 
 	domicilio : string;
 
-	//fdsfs
 
 	email: string;
+
+	emAziendale: string;
 
 	luogoNascita: string;
 

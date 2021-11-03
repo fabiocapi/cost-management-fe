@@ -8,6 +8,7 @@ import { Azienda } from '../azienda';
 import { AziendaService } from '../azienda.service';
 import { Dipendente } from '../dipendente';
 import { DipendenteService } from '../dipendente.service';
+declare let alertify: any;
 
 @Component({
   selector: 'app-create-dipendente',
@@ -19,11 +20,15 @@ export class CreateDipendenteComponent implements OnInit {
 
   dipendente: Dipendente = new Dipendente();
   selectedeAziendaId: number = 1;
+  emailAziendale:string;
   defaultAziendaId: number;
   aziende: Observable<Azienda[]>;
   aziendaFromProperties: Observable<Azienda>;
   aziendaById: Azienda;
   aziendaByNome: Azienda;
+
+  //check future date 
+  futureDateError: boolean;
 
 
   constructor(private aziendaService: AziendaService, private dipendentiService: DipendenteService, private router: Router) {
@@ -64,7 +69,7 @@ export class CreateDipendenteComponent implements OnInit {
       addDipendente(this.dipendente, this.selectedeAziendaId).toPromise()
       .then(res => {
           if (res == null) {
-            window.alert("Il dipendente e' gia' esistente nel database!" +
+            alertify.error("Il dipendente e' gia' esistente nel database!" +
               " Inserisci un codice fiscale che non e' presente.");
           } else {
             this.goToList();
@@ -75,6 +80,12 @@ export class CreateDipendenteComponent implements OnInit {
   goToList() {
     this.router.navigate(['gestioneDipendenti/listaDipendenti']);
   }
+
+  //check max date of birth
+
+  getToday(): string {
+    return new Date().toISOString().split('T')[0]
+ }
 }
 
 
