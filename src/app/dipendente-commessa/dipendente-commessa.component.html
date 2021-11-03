@@ -9,12 +9,12 @@
             <div>
                 <div class="form-field-group">
                 <mat-form-field appearance="outline">
-                    <mat-label>Descrizione Commessa</mat-label>                   
+                    <mat-label>Codice Commessa</mat-label>                   
                     <mat-select (selectionChange)="changeDescrCommessa($event.value)"
                     panelClass="my-select-panel-class"
-                        placeholder="Descrizione Commessa">  
+                        placeholder="Codice Commessa">  
                         <mat-option *ngFor="let commessa of commesse | async  " [value]="commessa">
-                            {{commessa.descrizioneCommessa}} - <span>{{commessa.importo >= 0 ? (commessa.importo | number:'1.2-2'): ''}} EUR</span>
+                            {{commessa.codice}} - <span>{{commessa.importo >= 0 ? (commessa.importo | number:'1.2-2'): ''}} EUR</span>
 <!--{{commessa.importo | number:'1.2-2' }} EUR-->
                         </mat-option>                   
                     </mat-select>                
@@ -116,11 +116,6 @@
 
 
 
-
-
-
-
-         
      
             <br>
             <button type="submit" class="btn btn-success">Inserisci</button>

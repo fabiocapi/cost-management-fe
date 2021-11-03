@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator/paginator';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Azienda } from '../azienda';
@@ -15,6 +16,11 @@ export class DettaglioDipendentiComponent implements OnInit {
   dipendenti: Observable<Dipendente[]>;
   dipendente: Dipendente;
   aziendaId : string;
+
+  //papgintion elements
+  thePageNumber: number = 1;
+  thePageSize: number = 5;
+  theTotalElements: number = 0;
 
   constructor(private dipendenteService: DipendenteService, private router: Router) {
     this.loadDipendenti();
@@ -34,7 +40,7 @@ export class DettaglioDipendentiComponent implements OnInit {
     this.router.navigate(['updateDipendente', codiceFiscale, aziendaId]);
   }
 
-  onDelete(codiceFiscale: string) {
+  onArchivia(codiceFiscale: string) {
   
     this.dipendenteService.removeDipendente(codiceFiscale).subscribe(
       data => {
@@ -43,4 +49,19 @@ export class DettaglioDipendentiComponent implements OnInit {
       },
       error => console.log(error));
   }
+
+  //implementation witout mta-talbe pagination
+updatePageSize(event: any):void {
+  this.thePageNumber = 1;
+  this.thePageSize= event.target.value;
+  this.loadDipendenti();
+}
+
+//implementation with mat-table pagination
+onPaginateChange(event: PageEvent){
+  this.thePageNumber = event.pageIndex +1;
+  this.thePageSize = event.pageSize;
+ this.loadDipendenti();
+
+}
 }

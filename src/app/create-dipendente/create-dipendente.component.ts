@@ -20,11 +20,15 @@ export class CreateDipendenteComponent implements OnInit {
 
   dipendente: Dipendente = new Dipendente();
   selectedeAziendaId: number = 1;
+  emailAziendale:string;
   defaultAziendaId: number;
   aziende: Observable<Azienda[]>;
   aziendaFromProperties: Observable<Azienda>;
   aziendaById: Azienda;
   aziendaByNome: Azienda;
+
+  //check future date 
+  futureDateError: boolean;
 
 
   constructor(private aziendaService: AziendaService, private dipendentiService: DipendenteService, private router: Router) {
@@ -76,6 +80,12 @@ export class CreateDipendenteComponent implements OnInit {
   goToList() {
     this.router.navigate(['gestioneDipendenti/listaDipendenti']);
   }
+
+  //check max date of birth
+
+  getToday(): string {
+    return new Date().toISOString().split('T')[0]
+ }
 }
 
 

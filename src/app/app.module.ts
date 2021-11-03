@@ -25,7 +25,12 @@ import { DettaglioDipendentiComponent } from './dettaglio-dipendenti/dettaglio-d
 import { GestioneCommessaComponent } from './gestione-commessa/gestione-commessa.component';
 import { CommessaAddComponent } from './commessa-add/commessa-add.component';
 import { DipendenteCommessaComponent } from './dipendente-commessa/dipendente-commessa.component';
-
+import{ NgxPaginationModule } from 'ngx-pagination';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import{NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -46,6 +51,7 @@ import { DipendenteCommessaComponent } from './dipendente-commessa/dipendente-co
     GestioneCommessaComponent,
     CommessaAddComponent,
     DipendenteCommessaComponent
+    
        
   ],
   imports: [
@@ -59,6 +65,12 @@ import { DipendenteCommessaComponent } from './dipendente-commessa/dipendente-co
     MatFormFieldModule,
     RouterModule,
     NoopAnimationsModule,
+    NgxPaginationModule,
+    MatTableModule,
+    MatPaginatorModule, 
+    MatProgressSpinnerModule, 
+    MatSortModule,
+    NgbModule
     
   ],
   providers: [],
