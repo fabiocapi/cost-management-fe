@@ -23,7 +23,10 @@ export class ClienteListComponent implements OnInit{
     this.clienti = this.clienteService.findClienteFilter(this.filter,this.radio);
   }
   onUpdate(partitaIva: string) {
-    this.router.navigate(['update', partitaIva]);
+    this.router.navigate(['clienteUpdate', partitaIva]);
+  }
+  onAdd() {
+    this.router.navigate(['clienteAdd']);
   }
   onDelete(partitaIva: string) {
     this.clienteService.removeCliente(partitaIva).subscribe(

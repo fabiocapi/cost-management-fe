@@ -20,8 +20,8 @@ export class ClienteService {
 
   findClienteByPartitaIva(partitaIva: string): Observable<any> {
     return this.http.get(`${this.clienteUrl}/${partitaIva}`);
-
   }
+  
   findClienteByCf(codFisc: string): Observable<any> {
     return this.http.get(`${this.clienteUrl}/cf/${codFisc}`);
 
@@ -31,6 +31,7 @@ export class ClienteService {
   }
 
   addCliente(cliente: Cliente): Observable<Object> {
+    console.info(cliente)
     return this.http.post(`${this.clienteUrl}`, cliente);
   }
 
@@ -51,7 +52,7 @@ export class ClienteService {
           return this.http.get(`${this.clienteUrl}/pec/${filter}`);
        default:
           return this.http.get(`${this.clienteUrl}`);
-}
+        }
   }
 
 }

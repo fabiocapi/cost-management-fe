@@ -14,6 +14,8 @@ import { GestioneDipendenteComponent } from './gestione-dipendente/gestione-dipe
 import { DettaglioDipendentiComponent } from './dettaglio-dipendenti/dettaglio-dipendenti.component';
 import { GestioneCommessaComponent } from './gestione-commessa/gestione-commessa.component';
 import { CommessaAddComponent } from './commessa-add/commessa-add.component';
+import { CommessaListComponent } from './commessa-list/commessa-list.component';
+import { CommessaUpdateComponent } from './commessa-update/commessa-update.component';
 
 
 
@@ -23,8 +25,8 @@ const routes: Routes = [
   { path: "registration" , component: RegistrationComponent},
   { path: "tipologia_contratto" , component: TipologiacontrattoComponent},
   { path: "clienti", component: ClienteListComponent},
-  { path: "clienti/add", component: ClienteAddComponent},
-  { path: "clienti/update", component: ClienteUpdateComponent},
+  { path: "clienteAdd", component: ClienteAddComponent},
+  { path: "clienteUpdate/:partitaIva", component: ClienteUpdateComponent},
   { path: "registration" , component: RegistrationComponent},
   { path: "gestioneDipendenti/listaDipendenti" , component: DipendenteListComponent},
   { path: "updateDipendente/:codiceFiscale/:aziendaId" , component: UpdateDipendenteComponent},
@@ -34,12 +36,13 @@ const routes: Routes = [
   { path: "gestioneDipendenti/dettaglioDipendenti" , component: DettaglioDipendentiComponent},
   { path: "gestioneCommessa" , component: GestioneCommessaComponent},
   { path: "gestioneCommessa/commessaAdd" , component: CommessaAddComponent},
-
+  { path: "gestioneCommessa/commessaList" , component: CommessaListComponent},
+  { path: "commessaUpdate/:codice" , component: CommessaUpdateComponent},
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],                              
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule ]
 })
 export class AppRoutingModule { }

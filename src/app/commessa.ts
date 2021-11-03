@@ -9,11 +9,13 @@ export class Commessa {
     tipologiaCommessa: string;
 
     dataInizioCommessa: String;
-    
+
+    importo:number;
+
     dataFineCommessa:String;
 
     cliente: Cliente;
-    
+
     constructor(){}
 
 }

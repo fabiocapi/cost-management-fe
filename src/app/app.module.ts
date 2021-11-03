@@ -24,7 +24,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DettaglioDipendentiComponent } from './dettaglio-dipendenti/dettaglio-dipendenti.component';
 import { GestioneCommessaComponent } from './gestione-commessa/gestione-commessa.component';
 import { CommessaAddComponent } from './commessa-add/commessa-add.component';
-
+import { CommessaListComponent } from './commessa-list/commessa-list.component';
+import { CommessaUpdateComponent } from './commessa-update/commessa-update.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +44,9 @@ import { CommessaAddComponent } from './commessa-add/commessa-add.component';
     TipologiacontrattoComponent,
     NavbarComponent,
     GestioneCommessaComponent,
-    CommessaAddComponent
-       
+    CommessaAddComponent,
+    CommessaListComponent,
+    CommessaUpdateComponent
   ],
   imports: [
     BrowserModule,
