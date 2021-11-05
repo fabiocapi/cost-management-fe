@@ -16,14 +16,18 @@ import { GestioneCommessaComponent } from './gestione-commessa/gestione-commessa
 import { CommessaAddComponent } from './commessa-add/commessa-add.component';
 import { DipendenteCommessaComponent } from './dipendente-commessa/dipendente-commessa.component';
 import { DettaglioDipendentiConformuleComponent } from './dettaglio-dipendenti-conformule/dettaglio-dipendenti-conformule.component';
+import { DatiContrattualiComponent } from './dati-contrattuali/dati-contrattuali.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
 const routes: Routes = [
-  { path: "login" , component: LoginComponent},
+  { path: "navbar" , component: NavbarComponent},
+  { path: "" , component: LoginComponent},
   { path: "loginsuccess" , component: LoginsuccessComponent},
   { path: "registration" , component: RegistrationComponent},
   { path: "tipologia_contratto" , component: TipologiacontrattoComponent},
+  { path: "datiContrattuali", component: DatiContrattualiComponent},
   { path: "clienti", component: ClienteListComponent},
   { path: "clienti/add", component: ClienteAddComponent},
   { path: "clienti/update", component: ClienteUpdateComponent},

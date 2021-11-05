@@ -10,6 +10,7 @@ import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { LoginsuccessComponent } from './loginsuccess/loginsuccess.component';
 import { TipologiacontrattoComponent } from './tipologiacontratto/tipologiacontratto.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DatiContrattualiComponent } from './dati-contrattuali/dati-contrattuali.component';
 import { ClienteListComponent } from './cliente-list/cliente-list.component';
 import { ClienteAddComponent } from './cliente-add/cliente-add.component';
 import { ClienteUpdateComponent } from './cliente-update/cliente-update.component';
@@ -52,7 +53,8 @@ import { DettaglioDipendentiConformuleComponent } from './dettaglio-dipendenti-c
     GestioneCommessaComponent,
     CommessaAddComponent,
     DipendenteCommessaComponent,
-    DettaglioDipendentiConformuleComponent
+    DettaglioDipendentiConformuleComponent,
+    DatiContrattualiComponent
     
        
   ],

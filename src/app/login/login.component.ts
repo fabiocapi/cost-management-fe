@@ -1,9 +1,9 @@
 import { Component, OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { LoginRegistrationService } from '../services/login-registration.service';
 import { User } from '../user/user';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 export class LoginComponent implements OnInit {
   user = new User();
   msg = "";
-  constructor(private service : LoginRegistrationService, private router : Router) { }
+  constructor(private service : LoginRegistrationService,private auth : AuthenticationService) { }
 
   ngOnInit(): void {
   }
@@ -27,8 +27,7 @@ export class LoginComponent implements OnInit {
         console.log("response recived");
         console.log(response);
         if(response){
-          NavbarComponent.linkEnabled=true;
-          this.router.navigate(['/loginsuccess']);
+          this.auth.authenticate();
         }
         else
         {this.msg = "Email o Password errati";}
@@ -40,9 +39,9 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  goToRegistration()
+  prova()
   {
-    this.router.navigate(['/registration']);
+    this.auth.authenticate();
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,16 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  public static linkEnabled:boolean=false;
-  constructor() { }
+  constructor(public auth :AuthenticationService) { }
+
   ngOnInit(): void {
   }
-  public getLink():boolean{
-    return NavbarComponent.linkEnabled;
-  }
-  public setLink(bool:boolean){
-    NavbarComponent.linkEnabled=bool;
-  }
-
-
 }
