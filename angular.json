@@ -31,11 +31,12 @@
             ],
             "styles": [
               "src/styles.css",
-              "../cost-management-fe/node_modules/bootstrap/dist/css/bootstrap.css"
+              "../cost-management-fe/node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "../cost-management-fe/node_modules/jquery/dist/jquery.js",
-              "../cost-management-fe/node_modules/bootstrap/dist/js/bootstrap.js"
+              "../cost-management-fe/node_modules/jquery/dist/jquery.min.js",
+              "../cost-management-fe/node_modules/popper.js/dist/umd/popper.min.js",
+              "../cost-management-fe/node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
