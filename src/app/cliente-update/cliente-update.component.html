@@ -4,6 +4,8 @@
      margin-bottom: 0.5cm;
   }
 </style>
+<div class="container">
+    <div class="col-md-6 offset-md-3 mt-4">
 <h3>Aggiungi Cliente</h3>
 <div style="width: 400px;">
     <form (ngSubmit)="onSubmit()">
@@ -16,11 +18,51 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="name">Sede Legale</label>
-            <input type="text" class="form-control" id="sedeLegale" required [(ngModel)]="cliente.sedeLegale" name="sedeLegale" pattern=".{1,30}" #sedeLegale="ngModel" [class.is-invalid]="sedeLegale.invalid && sedeLegale.touched">
-            <div *ngIf="sedeLegale.errors && (sedeLegale.invalid && sedeLegale.touched)"style='float:right;'>
-                    <small class="text-danger" *ngIf="sedeLegale.errors.required">Campo Obbligatorio</small>
-                    <small class="text-danger" *ngIf="sedeLegale.errors.pattern">inserire massimo 30 caratteri </small>
+            <label for="name">Indirizzo</label>
+            <input type="text" class="form-control" id="indirizzo" required [(ngModel)]="cliente.indirizzo" name="indirizzo" pattern=".{1,30}" #indirizzo="ngModel" [class.is-invalid]="indirizzo.invalid && indirizzo.touched">
+            <div *ngIf="indirizzo.errors && (indirizzo.invalid && indirizzo.touched)"style='float:right;'>
+                    <small class="text-danger" *ngIf="indirizzo.errors.required">Campo Obbligatorio</small>
+                    <small class="text-danger" *ngIf="indirizzo.errors.pattern">inserire massimo 30 caratteri </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">Numero civico</label>
+            <input type="text" class="form-control" id="numeroCivico" required [(ngModel)]="cliente.numeroCivico" name="numeroCivico" pattern=".{1,30}" #numeroCivico="ngModel" [class.is-invalid]="numeroCivico.invalid && numeroCivico.touched">
+            <div *ngIf="numeroCivico.errors && (numeroCivico.invalid && numeroCivico.touched)"style='float:right;'>
+                    <small class="text-danger" *ngIf="numeroCivico.errors.required">Campo Obbligatorio</small>
+                    <small class="text-danger" *ngIf="numeroCivico.errors.pattern">inserire massimo 30 caratteri </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">Città</label>
+            <input type="text" class="form-control" id="citta" required [(ngModel)]="cliente.citta" name="citta" pattern=".{1,30}" #citta="ngModel" [class.is-invalid]="citta.invalid && citta.touched">
+            <div *ngIf="citta.errors && (citta.invalid && citta.touched)"style='float:right;'>
+                    <small class="text-danger" *ngIf="citta.errors.required">Campo Obbligatorio</small>
+                    <small class="text-danger" *ngIf="citta.errors.pattern">inserire massimo 30 caratteri </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">Provincia</label>
+            <input type="text" class="form-control" id="provincia" required [(ngModel)]="cliente.provincia" name="provincia" pattern=".{1,30}" #provincia="ngModel" [class.is-invalid]="provincia.invalid && provincia.touched">
+            <div *ngIf="provincia.errors && (provincia.invalid && provincia.touched)"style='float:right;'>
+                    <small class="text-danger" *ngIf="provincia.errors.required">Campo Obbligatorio</small>
+                    <small class="text-danger" *ngIf="provincia.errors.pattern">inserire massimo 30 caratteri </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">Cap</label>
+            <input type="text" class="form-control" id="cap" required [(ngModel)]="cliente.cap" name="cap" pattern=".{1,30}" #cap="ngModel" [class.is-invalid]="cap.invalid && cap.touched">
+            <div *ngIf="cap.errors && (cap.invalid && cap.touched)"style='float:right;'>
+                    <small class="text-danger" *ngIf="cap.errors.required">Campo Obbligatorio</small>
+                    <small class="text-danger" *ngIf="cap.errors.pattern">inserire massimo 30 caratteri </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">Stato</label>
+            <input type="text" class="form-control" id="stato" required [(ngModel)]="cliente.stato" name="stato" pattern=".{1,30}" #stato="ngModel" [class.is-invalid]="stato.invalid && stato.touched">
+            <div *ngIf="stato.errors && (stato.invalid && stato.touched)"style='float:right;'>
+                    <small class="text-danger" *ngIf="stato.errors.required">Campo Obbligatorio</small>
+                    <small class="text-danger" *ngIf="stato.errors.pattern">inserire massimo 30 caratteri </small>
             </div>
         </div>
         <div class="form-group">
@@ -56,6 +98,8 @@
                     <small class="text-danger" *ngIf="pec.errors.pattern">inserire Email valida</small>
             </div>
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-success">Modifica</button>
     </form>
+</div>
+</div>
 </div>
