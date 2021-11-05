@@ -8,6 +8,7 @@ import { DipendenteCommessaService } from '../dipendente-commessa.service';
 import { DipendenteService } from '../dipendente.service';
 import { DipendenteCommessa } from '../dipendenteCommessa';
 import { DipendenteCommessaPK } from '../dipendenteCommessaPK';
+declare let alertify: any;
 
 
 @Component({
@@ -51,13 +52,13 @@ export class DipendenteCommessaComponent implements OnInit {
 
   async loadDipendenti() {
     await new Promise(f => setTimeout(f, 50));
-    //this.dipendenti = this.dipendenteService.findAllDipendenti();
+    this.dipendenti = this.dipendenteService.findAllDipendenti();
     
     }
 
 
 
-  changeDescrCommessa(value: any) {
+  changeCodiceCommessa(value: any) {
     console.log(this.dipendente);
      if (!(Object.keys(this.dipendente).length === 0)) {
     this.loadDipendenti();
@@ -73,7 +74,7 @@ export class DipendenteCommessaComponent implements OnInit {
 
   changeDipendente(value: any) {
     if (!(Object.keys(this.dipendente).length === 0)) {
-      this.dipendenteCommessa.tariffaGg = "0";
+     this.dipendenteCommessa.tariffaGg = null;
       this.dipendenteCommessa.dataFineAttivita = new Date();
       this.dipendenteCommessa.dataInizioAttivita = new Date();
 
@@ -89,22 +90,39 @@ export class DipendenteCommessaComponent implements OnInit {
   aggiungiTariffa(){
     this.aggiungiTriffaComboBox = true;
   }
-  
+ 
 
   onSubmit() {
     this.dipdendenteCommmessaPK.codiceCommessa = this.dipendenteCommessaCodice;
     this.dipdendenteCommmessaPK.dipendenteCodiceFiscale = this.dipendenteCommessaDipendente;
     this.dipendenteCommessa.id = this.dipdendenteCommmessaPK;
     //console.log(this.dipendenteCommessa.importo);
+   
+ this.dipendenteCommessaService.
+      addDipendenteCommessa(this.dipendenteCommessa, this.dipendenteCommessaCodice).toPromise()
+      .then(res => {
+        console.log(res);
+        if (res == null) {
+          alertify.error("Il dipendente e' gia' associato a questa commessa!");
+        } else {
+          this.goToList();
+        }
+      });
     
-
+ /*
     this.dipendenteCommessaService.
       addDipendenteCommessa(this.dipendenteCommessa, this.dipendenteCommessaCodice).toPromise()
       .then(x => this.goToList(), error => console.log(error));
+      */
   }
 
   goToList() {
-    this.router.navigate(['/dipendente_commessa']);
+    alertify.success('Dipendente inserito!');
+    this.tipologiaCommessa ="";
+    this.aggiungiTriffaComboBox = false;
+    this.ngOnInit();
+        
+      
   }
 
 }

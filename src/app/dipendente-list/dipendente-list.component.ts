@@ -26,6 +26,8 @@ export class DipendenteListComponent implements OnInit {
   thePageSize: number = 5;
   theTotalElements: number = 0;
 
+  //email checkbox
+  saveEmail:boolean = false;
  
 
   constructor(private dipendenteService: DipendenteService, private router: Router) {
@@ -68,6 +70,9 @@ onPaginateChange(event: PageEvent){
   this.thePageNumber = event.pageIndex +1;
   this.thePageSize = event.pageSize;
  this.loadDipendenti();
+
+}
+getEmail(){
 
 }
 

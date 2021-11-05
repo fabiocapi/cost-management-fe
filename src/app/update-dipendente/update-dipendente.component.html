@@ -1,5 +1,5 @@
 <div class="parent">
-<h3 class="text-center">Update Dipendente</h3>
+<h2 class="text-center">Modifica Dipendente</h2>
 
 <div style="width: 400px;">
 
@@ -16,11 +16,14 @@
                 </mat-select>
             </mat-form-field>
         </div>
+        <div class="form-group">
+            <label for="name">Nome</label>
         <input type="text" class="form-control" id="nome" required [(ngModel)]="dipendente.nome" name="nome"
             pattern="^[a-zA-Z\s]*$" #nome="ngModel" [class.is-invalid]="nome.invalid && nome.touched">
         <div *ngIf="nome.errors && (nome.invalid && nome.touched)" style='float:right;'>
             <small class="text-danger" *ngIf="nome.errors.required">Campo Obbligatorio</small>
             <small class="text-danger" *ngIf="nome.errors.pattern">inserire massimo 30 caratteri alfabetici </small>
+        </div>
         </div>
         <div class="form-group">
             <label for="name">Cognome</label>
@@ -124,7 +127,7 @@
         <br>
         
 
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-success">Salva</button>
 
     </form>
 

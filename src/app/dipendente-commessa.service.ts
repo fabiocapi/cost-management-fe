@@ -30,10 +30,10 @@ export class DipendenteCommessaService {
     //   'Cache-Control': 'no-cache'
     //      });    
 
-    console.log("^^^^^ DIPENDENTECOMEMMSSA CCODICE :"+ dipendenteCommessa.id.codiceCommessa);
+    //console.log("^^^^^ DIPENDENTECOMEMMSSA CCODICE :"+ dipendenteCommessa.id.codiceCommessa);
     //console.log("@@@@@ DIPENDENTE CF "+ dipendenteCommessa.id.dipendenteCodiceFiscale);
-    console.log(dipendenteCommessa.tariffaGg);
-    console.log(dipendenteCommessa);
+    //console.log(dipendenteCommessa.tariffaGg);
+    //console.log(dipendenteCommessa);
     return this.http.post(`${this.dipendipendenteCommessaUrl}/${commessaCodice}`,
 //     {"id":{
 //       "dipendenteCodiceFiscale":"VNDGDU74B21L4856",
