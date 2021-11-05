@@ -15,6 +15,7 @@ import { DettaglioDipendentiComponent } from './dettaglio-dipendenti/dettaglio-d
 import { GestioneCommessaComponent } from './gestione-commessa/gestione-commessa.component';
 import { CommessaAddComponent } from './commessa-add/commessa-add.component';
 import { DipendenteCommessaComponent } from './dipendente-commessa/dipendente-commessa.component';
+import { DettaglioDipendentiConformuleComponent } from './dettaglio-dipendenti-conformule/dettaglio-dipendenti-conformule.component';
 
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: "gestioneCommessa" , component: GestioneCommessaComponent},
   { path: "gestioneCommessa/commessaAdd" , component: CommessaAddComponent},
   { path: "gestioneCommessa/dipendente_commessa" , component: DipendenteCommessaComponent},
+  { path: "gestioneDipendenti/dettaglio_dipendenti_conformule" , component: DettaglioDipendentiConformuleComponent}
 
 
 ];

@@ -31,6 +31,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import{NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DettaglioDipendentiConformuleComponent } from './dettaglio-dipendenti-conformule/dettaglio-dipendenti-conformule.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import{NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NavbarComponent,
     GestioneCommessaComponent,
     CommessaAddComponent,
-    DipendenteCommessaComponent
+    DipendenteCommessaComponent,
+    DettaglioDipendentiConformuleComponent
     
        
   ],

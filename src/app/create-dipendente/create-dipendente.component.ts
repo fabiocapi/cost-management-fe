@@ -81,8 +81,7 @@ export class CreateDipendenteComponent implements OnInit {
     this.router.navigate(['gestioneDipendenti/listaDipendenti']);
   }
 
-  //check max date of birth
-
+  //limit calendar to past dates
   getToday(): string {
     return new Date().toISOString().split('T')[0]
  }

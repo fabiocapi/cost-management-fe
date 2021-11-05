@@ -5,7 +5,7 @@ export class DipendenteCommessaPK{
 
     
 
-    constructor(public codiceCommessa : string,public   dipendenteCodiceFiscale: string ){
+    constructor(public codiceCommessa : string, public   dipendenteCodiceFiscale: string ){
        
     }
     
