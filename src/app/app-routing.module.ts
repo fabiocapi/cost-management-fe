@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: "registration" , component: RegistrationComponent},
   { path: "tipologia_contratto" , component: TipologiacontrattoComponent},
   { path: "datiContrattuali", component: DatiContrattualiComponent},
+  { path: "gestioneDipendenti/datiContrattuali", component: DatiContrattualiComponent},
   { path: "clienti", component: ClienteListComponent},
   { path: "clienti/add", component: ClienteAddComponent},
   { path: "clienti/update", component: ClienteUpdateComponent},
